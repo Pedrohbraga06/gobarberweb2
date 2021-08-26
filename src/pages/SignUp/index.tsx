@@ -3,7 +3,7 @@ import { FiLogIn } from 'react-icons/fi';
 import logoImg from '../../assets/logo.svg';
 import { Container, Content, Background } from './styles';
 
-const SignIn: React.FC = () => (
+const SignUp: React.FC = () => (
   <Container>
     <Content>
       <img src={logoImg} alt="GoBarber" />
@@ -30,4 +30,4 @@ const SignIn: React.FC = () => (
   </Container>
 );
 
-export default SignIn;
+export default SignUp;
