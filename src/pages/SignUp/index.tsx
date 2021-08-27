@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  FiArrowLeft, FiUser, FiLock,
+  FiArrowLeft, FiUser, FiLock, FiMail,
 } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import logoImg from '../../assets/logo.svg';
@@ -9,8 +9,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 
 const SignUp: React.FC = () => {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  function handleSubmit(data: object): void {
+  function handleSubmit(data: any): void {
     console.log(data);
   }
 
@@ -24,7 +23,7 @@ const SignUp: React.FC = () => {
           <h1>Faça seu cadastro</h1>
 
           <Input name="name" icon={FiUser} placeholder="Nome" />
-          <Input name="email" icon={FiLock} placeholder="E-mail" />
+          <Input name="email" icon={FiMail} placeholder="E-mail" />
           <Input
             name="password"
             icon={FiLock}
