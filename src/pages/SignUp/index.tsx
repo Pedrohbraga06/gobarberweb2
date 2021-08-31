@@ -1,12 +1,14 @@
 import React from 'react';
 import {
-  FiArrowLeft, FiUser, FiLock, FiMail,
+  FiArrowLeft, FiUser, FiMail, FiLock,
 } from 'react-icons/fi';
 import { Form } from '@unform/web';
+
 import logoImg from '../../assets/logo.svg';
-import { Container, Content, Background } from './styles';
+
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import { Container, Content, Background } from './styles';
 
 const SignUp: React.FC = () => {
   function handleSubmit(data: any): void {
@@ -32,17 +34,16 @@ const SignUp: React.FC = () => {
           />
 
           <Button type="submit">Cadastrar</Button>
+          {' '}
 
         </Form>
 
-        <a href="login">
+        <a href="signup">
           <FiArrowLeft />
-          Voltar para o logon
+          Voltar para logon
         </a>
       </Content>
-
     </Container>
   );
 };
-
 export default SignUp;
