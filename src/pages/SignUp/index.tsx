@@ -1,16 +1,17 @@
+import { FormHandles } from '@unform/core';
+import { Form } from '@unform/web';
 import React, { useCallback, useRef } from 'react';
 import {
-  FiArrowLeft, FiUser, FiMail, FiLock,
+  FiArrowLeft, FiLock, FiMail, FiUser
 } from 'react-icons/fi';
-import { Form } from '@unform/web';
+import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
-import { FormHandles } from '@unform/core';
-import getValidationErrors from '../../utils/getValidationErrors';
-
 import logoImg from '../../assets/logo.svg';
-import Input from '../../components/Input';
 import Button from '../../components/Button';
-import { Container, Content, Background } from './styles';
+import Input from '../../components/Input';
+import getValidationErrors from '../../utils/getValidationErrors';
+import { Background, Container, AnimationContainer, Content } from './styles';
+
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -37,6 +38,7 @@ const SignUp: React.FC = () => {
     <Container>
       <Background />
       <Content>
+        <AnimationContainer>
         <img src={logoImg} alt="GoBarber" />
 
         <Form ref={formRef} onSubmit={handleSubmit}>
@@ -56,10 +58,11 @@ const SignUp: React.FC = () => {
 
         </Form>
 
-        <a href="signup">
+        <Link to="/">
           <FiArrowLeft />
           Voltar para logon
-        </a>
+        </Link>
+        </AnimationContainer>
       </Content>
     </Container>
   );

@@ -1,18 +1,19 @@
-import React, { useCallback, useRef } from 'react';
-import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
+import React, { useCallback, useRef } from 'react';
+import { FiLock, FiLogIn, FiMail } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
-
-import getValidationErrors from '../../utils/getValidationErrors';
+import logoImg from '../../assets/logo.svg';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
 import { useAuth } from '../../hooks/Auth';
 import { useToast } from '../../hooks/Toast';
+import getValidationErrors from '../../utils/getValidationErrors';
+import { Background, Container, Content, AnimationContainer } from './styles';
 
-import logoImg from '../../assets/logo.svg';
 
-import Input from '../../components/Input';
-import Button from '../../components/Button';
-import { Container, Content, Background } from './styles';
+
 
 interface SignInFormData {
   email: string;
@@ -49,6 +50,7 @@ const SignIn: React.FC = () => {
         const errors = getValidationErrors(err);
 
         formRef.current?.setErrors(errors);
+        return;
       }
 
       addToast({
@@ -62,6 +64,7 @@ const SignIn: React.FC = () => {
   return (
     <Container>
       <Content>
+        <AnimationContainer>
         <img src={logoImg} alt="GoBarber" />
 
         <Form ref={formRef} onSubmit={handleSubmit}>
@@ -80,10 +83,11 @@ const SignIn: React.FC = () => {
 
         </Form>
 
-        <a href="signup">
+        <Link to="/signup">
           <FiLogIn />
           Criar conta
-        </a>
+        </Link>
+        </AnimationContainer>
       </Content>
       <Background />
     </Container>
